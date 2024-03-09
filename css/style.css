@@ -60,7 +60,7 @@ h4{
     font-weight: 500;
     z-index: 100;
     color: #1ec62c;
-    margin-bottom: 200px;
+    margin-bottom: 250px;
 
 }
 
@@ -105,7 +105,7 @@ h1::after{
   .menu a {
     text-decoration: none; /* Quita el subrayado de los enlaces */
     color: #ffffff; /* Color del texto de las opciones del menú */
-    font-size: 30px; /* Tamaño de fuente de las opciones del menú */
+    font-size: 44px; /* Tamaño de fuente de las opciones del menú */
   }
   
   .menu a:hover {

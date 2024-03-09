@@ -1,9 +1,21 @@
-
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background-image: url('../img/desktop-wallpaper-2d-game-backgrounds-1380x820-for-your-mobile-tablet-2d-game.jpg'); /* Cambia 'ruta_de_tu_imagen.jpg' por la ruta de tu imagen de fondo */
+    background-size: cover; /* Cubrir toda la pantalla */
+    background-repeat: no-repeat; /* Evitar que se repita */
+}
 
 #hause-animals, #animals{
     width: 1600px;
-    height: 350px;
+
     background-color: grey;
+
+    height: 300px;
+    border-radius: 30px;
 }
 
 /*Esto es para organizar cada elemento de cada contenedor */
