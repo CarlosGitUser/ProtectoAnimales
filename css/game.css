@@ -11,6 +11,7 @@ body{
 
 #hause-animals, #animals{
     width: 1600px;
+
     height: 300px;
 }
 
@@ -37,10 +38,13 @@ body{
     width: 200px;
     height: 50px;
 }
+
+ 
 /*Esto es para organizar cada elemento de cada contenedor */
 #hause-animals{
     display: flex;
     justify-content: space-around;
+    align-items: flex-start;
 }
 
 #animals{
@@ -48,3 +52,5 @@ body{
     justify-content: space-around;
     align-items: flex-end;
 }
+
+

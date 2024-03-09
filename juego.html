@@ -5,27 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Juego</title>
     <link rel="stylesheet" href="css/game.css">
-    <script src="js/juego.js" defer></script>
-    <style>
-        img{
-            width: 300px;
-            height: 300px;
-        }
-    </style>
+    <script src="js/canvas.js" defer></script>
+    <script src="js/movimiento.js" defer></script>
 </head>
 <body>
 
     <div id="hause-animals">
-        <div id="hause-1"><img src="" id="Himage-1"></div>
-        <div id="hause-2"><img src="" id="Himage-2"></div>
-        <div id="hause-3"><img src="" id="Himage-3"></div>
-
+        <canvas width="300px" height="300px" id="Himage-1"></canvas>
+        <canvas width="300px" height="300px" id="Himage-2"></canvas>
+        <canvas width="300px" height="300px" id="Himage-3"></canvas>
     </div>
 
     <div id="animals">
-        <div id="animal-1"><img src="" id="Aimage-1"></div>
-        <div id="animal-2"><img src="" id="Aimage-2"></div>
-        <div id="animal-3"><img src="" id="Aimage-3"></div>
+        <canvas width="300px" height="300px" id="Aimage-1" draggable="true"></canvas>
+        <canvas width="300px" height="300px" id="Aimage-2" draggable="true"></canvas>
+        <canvas width="300px" height="300px" id="Aimage-3" draggable="true"></canvas>
     </div>
 
 </body>
