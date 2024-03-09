@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
+<<<<<<< HEAD
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pantalla Principal</title>
@@ -36,5 +37,185 @@
             <source src="media/tree_-_71862 (540p).mp4">
          </video>
       </header>
+=======
+    <title>Nombre del juego</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center; /* Centrar horizontalmente */
+            align-items: center; /* Centrar verticalmente */
+            height: 100vh;
+            background-color: #222;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            overflow: hidden; /* Evitar que el video se desborde */
+        }
+
+        #video-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            min-width: 100%;
+            min-height: 100%;
+            z-index: -1; /* Colocar el video detrás de todo */
+        }
+
+        canvas {
+            z-index: 1; /* Colocar el lienzo sobre el video */
+            border: 2px solid #fff;
+            background-color: #333;
+        }
+    </style>
+</head>
+<body>
+    <video id="video-bg" autoplay muted loop playsinline>
+        <source src="/img/video.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <div id="canvas-container">
+        <canvas id="myCanvas" width="480" height="320">
+            <p>Your browser does not support HTML5!</p>
+        </canvas>
+    </div>
+
+    <!-- Agregado: Nombre del juego -->
+    <h1 style="position: absolute; top: 20px; left: 20px;">Nombre del juego</h1>
+    
+    <!-- Agregado: Logotipo -->
+    <img src="/img/fondo.jpg" alt="Logo" style="position: absolute; top: 20px; right: 20px; width: 100px; height: auto;">
+    
+    <!-- Agregado: Música -->
+    <audio id="bg-music" autoplay loop>
+        <source src="/audio/music.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <!-- Agregado: Presentación -->
+    <div id="presentation" style="position: absolute; bottom: 20px; left: 20px;">
+        <p>Bienvenido a (Nombre del juego)!<br>
+        ¡Prepárate para embarcarte en una emocionante aventura llena de sonidos, colores y descubrimientos junto a los adorables animalitos!</p>
+    </div>
+
+    <!-- Agregado: Botón de créditos -->
+    <button id="credits-btn" style="position: absolute; bottom: 20px; right: 20px;">Credits</button>
+
+    <script type="text/javascript">
+        var canvas = document.getElementById("myCanvas");
+        var context = canvas.getContext("2d");
+        var width = canvas.getAttribute('width');
+        var height = canvas.getAttribute('height');
+
+        var shipImage = new Image();
+        shipImage.src = "/img/fondoluna.jpg";
+
+        var buttonX = [192, 110, 149, 160];
+        var buttonY = [100, 140, 180, 220];
+        var buttonWidth = [96, 260, 182, 160];
+        var buttonHeight = [40, 40, 40, 40];
+
+        var video = document.getElementById("video-bg");
+
+        var frames = 30;
+        var timerId = 0;
+        timerId = setInterval(update, 1000/frames);
+
+        var backgroundY = 0;
+        var speed = 1;
+
+        function update() {
+            clear();
+            move();
+            draw();
+        }
+
+        function clear(){
+            context.clearRect(0, 0, width, height);
+        }
+
+        function move(){
+            backgroundY -= speed;
+            if(backgroundY == -1 * height){
+                backgroundY = 0;
+            }
+        }
+
+        function draw() {
+            // Dibujar texto para las opciones del menú
+            context.fillStyle = "#fff";
+            context.font = "20px Arial";
+            context.fillText("Jugar", buttonX[0] + 30, buttonY[0] + 25);
+            context.fillText("Instrucciones", buttonX[1] + 79, buttonY[1] + 25);
+            context.fillText("Configuracion", buttonX[2] + 40, buttonY[2] + 25);
+            context.fillText("Creditos", buttonX[3] + 49, buttonY[3] + 25);
+
+            context.font = "40px Arial";
+            context.fillText("Menú", 190, 70);
+
+            if(shipVisible == true){
+                context.drawImage(shipImage, shipX[0] - (shipSize/2), shipY[0], shipSize, shipHeight);
+                context.drawImage(shipImage, shipX[1] - (shipSize/2), shipY[1], shipSize, shipHeight);
+            }
+        }
+
+        var mouseX;
+        var mouseY;
+        canvas.addEventListener("click", checkClick);
+
+        function checkClick(event){
+            mouseX = event.clientX - canvas.getBoundingClientRect().left;
+            mouseY = event.clientY - canvas.getBoundingClientRect().top;
+
+            for(var i = 0; i < buttonX.length; i++){
+                if(mouseX > buttonX[i] && mouseX < buttonX[i] + buttonWidth[i]){
+                    if(mouseY > buttonY[i] && mouseY < buttonY[i] + buttonHeight[i]){
+                        shipVisible = true;
+                        shipX[0] = buttonX[i] - (shipWidth/2) - 2;
+                        shipY[0] = buttonY[i] + 2;
+                        shipX[1] = buttonX[i] + buttonWidth[i] + (shipWidth/2); 
+                        shipY[1] = buttonY[i] + 2;
+                        
+                        // Redireccionar a la página correspondiente
+                        if (i === 0) {
+                            window.location.href = "juego.html";
+                        } else if (i === 1) {
+                            window.location.href = "instrucciones.html";
+                        } else if (i === 2) {
+                            window.location.href = "configuracion.html";
+                        } else if (i === 3) {
+                            window.location.href = "creditos.html";
+                        }
+                    }
+                } else {
+                    shipVisible = false;
+                }
+            }
+        }
+
+        var shipX = [0,0];
+        var shipY = [0,0];
+        var shipWidth = 35;
+        var shipHeight = 40;
+        var shipVisible = false;
+        var shipSize = shipWidth;
+        var shipRotate = 0;
+        var time = 0;
+
+        function fadeOut(){
+            context.fillStyle = "rgba(0,0,0, 0.2)";
+            context.fillRect (0, 0, width, height);
+            time += 0.1;
+            if(time >= 2){
+                clearInterval(fadeId);
+                time = 0;
+                timerId = setInterval(update, 1000/frames);
+                canvas.addEventListener("mousemove", checkPos);
+                canvas.addEventListener("mouseup", checkClick);
+            }
+        }
+    </script>
+>>>>>>> f4d642f08708eaa7834cd7c3d9c5c2842151cdf6
 </body>
 </html>
