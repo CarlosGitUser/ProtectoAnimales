@@ -5,7 +5,7 @@ let lista = [1,2,3,4,5,6,7,8,9];
 lista = lista.sort(function() {return Math.random() - 0.5});
 
 //Array con las imagenes en orden
-let animales = ["ajolote", "buho", "caballo", "capybara", "delfin", "gato", "leon", "pato", "serpiente"];
+const animales = ["ajolote", "buho", "caballo", "capybara", "delfin", "gato", "leon", "pato", "serpiente"];
 
 //Funcion para desordenar un array
 function shuffle(array) {
@@ -33,6 +33,11 @@ function dibujarCanvas(canvasId, imagenSrc) {
         ctx.drawImage(imagen, 0, 0, canvas.width, canvas.height);
     };
 }
+
+function nombrarCanvas(canvasId, nombre){
+    let canva = document.getElementById(canvasId);
+    canva.setAttribute("name", nombre);
+}
     //variables para el src de las imagenes
         //Animales
         const animal_1 = "../img/" + animales[img_1] + ".png";
@@ -53,6 +58,15 @@ function dibujarCanvas(canvasId, imagenSrc) {
     dibujarCanvas("Himage-1", habitat_1);
     dibujarCanvas("Himage-2", habitat_2);
     dibujarCanvas("Himage-3", habitat_3);
+
+    //Colocar nombre a cada canvas
+    nombrarCanvas("Aimage-1", animales[img_1]);
+    nombrarCanvas("Aimage-2", animales[img_2]);
+    nombrarCanvas("Aimage-3", animales[img_3]);
+
+    nombrarCanvas("Himage-1", animales[aux[0]]);
+    nombrarCanvas("Himage-2", animales[aux[1]]);
+    nombrarCanvas("Himage-3", animales[aux[2]]);
 
 
 

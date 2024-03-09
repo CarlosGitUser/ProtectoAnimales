@@ -1,14 +1,15 @@
 function iniciar(){
     var imagenes = document.querySelectorAll('#animals > canvas');
+    const canvases = document.querySelectorAll('.canvas');
+    canvases.forEach(canvas => {
+        canvas.addEventListener('dragover', eventoOver);
+        canvas.addEventListener('drop', soltado);
+      });
+
     for (let i = 0; i < imagenes.length; i++){
         imagenes[i].addEventListener('dragstart', arrastrado, false);
         imagenes[i].addEventListener('dragend', finalizado, false);
     }
-
-    soltar = document.getElementById('Himage-1');
-    lienzo = soltar.getContext('2d');
-    soltar.addEventListener('drop', soltado, false);
-    soltar.addEventListener('dragover', eventoOver, false);
 }
 
 
@@ -30,21 +31,30 @@ function finalizado(e){
 
 function arrastrado(e){
     elemento = e.target;
-    e.dataTransfer.setData('Text', elemento.getAttribute('id'));
-    e.dataTransfer.setDragImage(e.target, 0, 0);
+    const offsetX = e.target.width / 2;
+    const offsetY = e.target.height / 2;
+    e.dataTransfer.setDragImage(e.target, offsetX, offsetY);
+    e.dataTransfer.setData('text/plain', e.target.id);
     console.log("funcion arrastrado");
-
 }
 
-function soltado(e){
-    e.preventDefault();
-    var id = e.dataTransfer.getData('Text');
-    var elemento = document.getElementById(id);
-    var posx = e.pageX - soltar.offsetLeft;
-    var posy = e.pageY - soltar.offsetTop;
-    lienzo.drawImage(elemento, posx, posy);
-    console.log("funcion soltado");
+function soltado(event) {
+    event.preventDefault();
 
+    const id = event.dataTransfer.getData('text');
+    const draggableElement = document.getElementById(id);
+    const canvasId = event.target.id;
+
+    const canvas = document.getElementById(canvasId); // Obtener el canvas objetivo
+    const ctx = canvas.getContext('2d');
+
+    const rect = canvas.getBoundingClientRect();
+    const x = event.clientX - rect.left;
+    const y = event.clientY - rect.top;
+
+    // Dibujar la imagen arrastrada sobre el canvas en las coordenadas x, y
+    ctx.drawImage(draggableElement, 100, 150, 200, 200);
+   
 }
 
 window.addEventListener('load', iniciar, false);
