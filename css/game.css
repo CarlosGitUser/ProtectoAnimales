@@ -4,42 +4,17 @@
     box-sizing: border-box;
 }
 body{
-    background-image: url('../img/pngtree-beautiful-mountain-scenery-decoration-pic'); /* Cambia 'ruta_de_tu_imagen.jpg' por la ruta de tu imagen de fondo */
+    background-image: url('../img/desktop-wallpaper-2d-game-backgrounds-1380x820-for-your-mobile-tablet-2d-game.jpg'); /* Cambia 'ruta_de_tu_imagen.jpg' por la ruta de tu imagen de fondo */
     background-size: cover; /* Cubrir toda la pantalla */
     background-repeat: no-repeat; /* Evitar que se repita */
 }
 
 #hause-animals, #animals{
     width: 1600px;
-
     height: 300px;
+    border-radius: 30px;
 }
 
-#animal-1, #animal-2, #animal-3{
-    
-    width: 200px;
-    height: 50px;
-    border-radius: 15px;
-}
-
-#hause-1{
-    background-color: rgb(116, 71, 219);
-    width: 200px;
-    height: 50px;
-}
-#hause-2{
-    background-color: rgb(57, 42, 94);
-    width: 200px;
-    height: 50px;
-}
-
-#hause-3{
-    background-color: rgb(64, 24, 165);
-    width: 200px;
-    height: 50px;
-}
-
- 
 /*Esto es para organizar cada elemento de cada contenedor */
 #hause-animals{
     display: flex;
