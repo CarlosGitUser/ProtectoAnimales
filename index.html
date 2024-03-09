@@ -1,11 +1,46 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pantalla Principal</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Honk&family=Rubik+Doodle+Shadow&family=Sixtyfour&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="img/Colorful_3D_Illustrations_Little_Crocodile_Logo-removebg-preview.png">
+
+    
 </head>
 <body>
-    
+    <audio autoplay>
+        <source src="media/gamemusic-6082.mp3" type="audio/mpeg">
+        Tu navegador no soporta el elemento de audio.
+      </audio>
+    <header>
+        <div class="overlay"></div>
+        <div class="relative">
+            <h4>Bienvenidos a:</h4>
+        </div>
+        <div class="absolute">
+            <h1>Animal Match</h1><br>
+        </div>
+        <div class="logo">
+            <img src="img/Colorful_3D_Illustrations_Little_Crocodile_Logo-removebg-preview.png" alt="">
+        </div>
+        <div class="menu">
+            <ul>
+              <li><a href="juego.html">Jugar</a></li>
+              <li><a href="#">Instrucciones</a></li>
+              <li><a href="creditos.html">Creditos</a></li>
+              <li><a href="#">Ajustes</a></li>
+            </ul>
+          </div>
+
+         <video onloadedmetadata="this.muted=true" autoplay loop>
+            <source src="media/jungle_-_95050 (540p).mp4">
+         </video>
+      </header>
+
 </body>
 </html>

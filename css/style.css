@@ -1,0 +1,121 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: Rubik Doodle Shadow;
+}
+
+header{
+    width: 100%;
+    height: auto;
+    position: relative;
+    overflow: hidden;
+}
+
+video{
+    width: 100%;
+}
+.absolute{
+    width: 100%;
+    height: 100%;
+    top: 0;
+    right: 0;
+    position: absolute;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.relative{
+    width: 100%;
+    height: 100%;
+    top: 0;
+    right: 0;
+    position: absolute;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.logo{
+    width: 30%;
+    height: 30%;
+    top: 0;
+    right: 0;
+    padding-left: 130px;
+    position: absolute;
+    display: flex;
+   /* justify-content: center;*/
+    align-items: left;
+}
+img{
+    z-index: 100;
+    margin-top: 10px;
+}
+h4{
+    font-size: 50px;
+    font-weight: 500;
+    z-index: 100;
+    color: #1ec62c;
+    margin-bottom: 200px;
+
+}
+
+h1{
+    font-size: 70px;
+    font-weight: 900;
+    z-index: 100;
+    color: rgb(8, 219, 124);
+    margin-bottom: 90px;
+}
+h1::after{
+    display: block;
+    width: 80%;
+    height: 10px;
+    content: "";
+    margin: auto;
+    background:  rgb(8, 219, 124);
+
+}
+
+.menu{
+    width: 100%;
+    height: 100%;
+    top: 450px;
+    right: 0;
+    position: absolute;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    z-index: 100;
+    margin-bottom: 90px;
+}
+.menu ul {
+    list-style: none; /* Quita los puntos de lista */
+    padding: 0; /* Quita el relleno predeterminado de la lista */
+  }
+  
+  .menu li {
+    margin-bottom: 10px; /* Espacio entre cada opción del menú */
+  }
+  
+  .menu a {
+    text-decoration: none; /* Quita el subrayado de los enlaces */
+    color: #ffffff; /* Color del texto de las opciones del menú */
+    font-size: 30px; /* Tamaño de fuente de las opciones del menú */
+  }
+  
+  .menu a:hover {
+    color: #003384; /* Cambia el color del texto al pasar el mouse sobre las opciones del menú */
+  }
+  
+.overlay{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background: rgb(0, 0, 0,0.575);
+}
+
