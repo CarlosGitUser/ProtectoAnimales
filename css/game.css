@@ -2,37 +2,16 @@
 
 #hause-animals, #animals{
     width: 1600px;
-    height: 300px;
+    height: 350px;
     background-color: grey;
     
 }
 
-#animal-1, #animal-2, #animal-3{
-    background-color: rgb(145, 41, 41);
-    width: 200px;
-    height: 50px;
-}
-
-#hause-1{
-    background-color: rgb(116, 71, 219);
-    width: 200px;
-    height: 50px;
-}
-#hause-2{
-    background-color: rgb(57, 42, 94);
-    width: 200px;
-    height: 50px;
-}
-
-#hause-3{
-    background-color: rgb(64, 24, 165);
-    width: 200px;
-    height: 50px;
-}
 /*Esto es para organizar cada elemento de cada contenedor */
 #hause-animals{
     display: flex;
     justify-content: space-around;
+    align-items: flex-start;
 }
 
 #animals{
@@ -40,3 +19,5 @@
     justify-content: space-around;
     align-items: flex-end;
 }
+
+
