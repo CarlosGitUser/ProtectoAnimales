@@ -7,6 +7,10 @@ lista = lista.sort(function() {return Math.random() - 0.5});
 //Array con las imagenes en orden
 let animales = ["ajolote", "buho", "caballo", "capybara", "delfin", "gato", "leon", "pato", "serpiente"];
 
+//Funcion para desordenar un array
+function shuffle(array) {
+    array.sort(() => Math.random() - 0.5);
+  }
 // Función para establecer la imagen en el div
 const imagenes = function (){
 
@@ -27,17 +31,28 @@ const imagenes = function (){
     const animal_3 = document.getElementById("Aimage-3");
     animal_3.src = "../img/" + animales[img_3]+".png";
 
+   
+    //Desordenar el array
+    const aux = [img_1, img_2, img_3];
+    shuffle(aux);
+    console.log(aux);
+
     //Colocar los habitat en los div
     const habitat_1 = document.getElementById("Himage-1");
-    habitat_1.src = "../img/H" + animales[img_1]+".png";
+    habitat_1.src = "../img/H" + animales[aux[0]]+".png";
 
     const habitat_2 = document.getElementById("Himage-2");
-    habitat_2.src = "../img/H" + animales[img_2]+".png";
+    habitat_2.src = "../img/H" + animales[aux[1]]+".png";
 
     const habitat_3 = document.getElementById("Himage-3");
-    habitat_3.src = "../img/H" + animales[img_3]+".png";
+    habitat_3.src = "../img/H" + animales[aux[2]]+".png";
+}
 
+const x = document.getElementById("Himage-1");
+x.addEventListener("dragend",correcto);
 
+function correcto (event){
+    console.log("el animal entro en la imagen");
 }
 
 window.onload = imagenes;
