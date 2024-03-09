@@ -1,16 +1,24 @@
-
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background-image: url('../img/pngtree-beautiful-mountain-scenery-decoration-pic'); /* Cambia 'ruta_de_tu_imagen.jpg' por la ruta de tu imagen de fondo */
+    background-size: cover; /* Cubrir toda la pantalla */
+    background-repeat: no-repeat; /* Evitar que se repita */
+}
 
 #hause-animals, #animals{
     width: 1600px;
     height: 300px;
-    background-color: grey;
-    
 }
 
 #animal-1, #animal-2, #animal-3{
-    background-color: rgb(145, 41, 41);
+    
     width: 200px;
     height: 50px;
+    border-radius: 15px;
 }
 
 #hause-1{
