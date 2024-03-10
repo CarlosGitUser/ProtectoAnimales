@@ -150,6 +150,9 @@
 
         // Función para almacenar el alias en localStorage
         function saveAlias(alias) {
+
+            localStorage.setItem("alias", alias);
+
             // Obtener puntuaciones anteriores
             var scores = getPreviousScores();
             // Agregar el alias a las puntuaciones
