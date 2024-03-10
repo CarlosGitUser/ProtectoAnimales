@@ -45,7 +45,7 @@ body{
 
 
 .btn10:hover{
-    border: 1px solid #ff735b;
+    border: 1px solid #fc330f;
     color: #ffd23e!important;
 }
 .btn10::before {
@@ -53,7 +53,7 @@ body{
     width: 0%;
     height: 100%;
     display: block;
-    background: #ff735b;
+    background: #fc330f;
     position: absolute;
     -ms-transform: skewX(-20deg);
     -webkit-transform: skewX(-20deg); 
@@ -74,7 +74,7 @@ body{
     width: 0%;
     height: 100%;
     display: block;
-    background: #80ffd3;
+    background: #ff0000;
     position: absolute;
   -ms-transform: skewX(-20deg);
     -webkit-transform: skewX(-20deg); 
