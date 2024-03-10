@@ -1,9 +1,16 @@
 // Función para actualizar el tiempo jugado cada segundo
 function actualizarTiempo() {
-    var tiempo = 0; // Inicializar tiempo en segundos
+    // Obtener el tiempo guardado del almacenamiento local
+    var tiempoGuardado = localStorage.getItem('tiempoJugado');
 
-    var intervaloTiempo = setInterval(function() {
-        tiempo++; // Incrementar el tiempo en cada intervalo
+    // Inicializar el tiempo en 0 si no hay tiempo guardado
+    var tiempo = tiempoGuardado ? parseInt(tiempoGuardado) : 0;
+
+    var intervaloTiempo;
+
+    // Función para actualizar el tiempo
+    function actualizar() {
+        tiempo++;
 
         // Convertir tiempo a formato hh:mm:ss
         var horas = Math.floor(tiempo / 3600);
@@ -17,42 +24,47 @@ function actualizarTiempo() {
 
         // Actualizar el contenido del elemento con el tiempo jugado
         document.getElementById('tiempo-jugado').textContent = tiempoFormateado;
-    }, 1000); // Ejecutar cada segundo (1000 ms)
 
-    // Función para pausar el tiempo
-    function pausarTiempo() {
-        clearInterval(intervaloTiempo);
+        // Guardar el tiempo en el almacenamiento local
+        localStorage.setItem('tiempoJugado', tiempo);
     }
 
-    // Función para continuar el tiempo
-    function continuarTiempo() {
-        intervaloTiempo = setInterval(function() {
-            tiempo++;
-            actualizarTiempo();
-        }, 1000);
+    // Iniciar o reanudar el tiempo
+    function iniciarTiempo() {
+        intervaloTiempo = setInterval(actualizar, 1000);
+    }
+
+    // Detener el tiempo
+    function detenerTiempo() {
+        clearInterval(intervaloTiempo);
     }
 
     // Lógica para pausar y continuar el tiempo
     document.getElementById('pausar').addEventListener('click', function() {
-        pausarTiempo();
+        detenerTiempo();
         document.getElementById('estado').textContent = 'Estado: Juego pausado';
     });
 
     document.getElementById('continuar').addEventListener('click', function() {
-        continuarTiempo();
+        iniciarTiempo();
         document.getElementById('estado').textContent = 'Estado: Jugando';
     });
-}
 
-// Lógica para pausar y continuar la música
-document.getElementById('pausar-musica').addEventListener('click', function() {
+    // Lógica para pausar y reanudar la música
     var musica = document.getElementById('musica');
-    if (!musica.paused) {
-        musica.pause();
-        document.getElementById('estado').textContent = 'Estado: Música pausada';
-    }
-});
+    document.getElementById('pausar-musica').addEventListener('click', function() {
+        if (musica.paused) {
+            musica.play();
+            document.getElementById('estado').textContent = 'Estado: Música reanudada';
+        } else {
+            musica.pause();
+            document.getElementById('estado').textContent = 'Estado: Música pausada';
+        }
+    });
+
+    // Iniciar el tiempo
+    iniciarTiempo();
+}
 
 // Llamar a la función para comenzar a actualizar el tiempo jugado
 actualizarTiempo();
-
