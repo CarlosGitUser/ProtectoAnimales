@@ -1,6 +1,6 @@
 body {
-    font-family: 'Rubik Bubbles', sans-serif;
-    color: #50882b;
+    font-family: 'Antonio', sans-serif;
+    color: rgb(0, 0, 0);
     text-align: center;
     background-image: url('/img/fonnature.jpg');
     background-size: cover;
@@ -43,7 +43,7 @@ body {
 #backButton {
     margin-top: 20px;
     padding: 10px 20px;
-    background-color: #bac346;
+    background-color: #2f8f2a;
     color: #fff;
     border: none;
     border-radius: 5px;
