@@ -41,6 +41,9 @@ body{
 
 /*-------- Canvas ------------*/
 #hause-animals, #animals{
+    width: 1600px;
+    background-color: grey;
+    height: 300px;
     border-radius: 30px;
     display: flex;
     justify-content: space-around;

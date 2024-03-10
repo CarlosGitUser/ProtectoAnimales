@@ -1,29 +1,38 @@
 body {
-    font-family: Honk;
+    font-family: 'Rubik Bubbles', sans-serif;
+    color: #50882b;
     text-align: center;
-    background-image: url('/img/fonnature.jpg'); /* Cambia 'ruta/a/la/imagen.jpg' por la ruta de tu imagen */
+    background-image: url('/img/fonnature.jpg');
     background-size: cover;
     background-position: center;
 }
 #credits {
     margin: 20px auto;
     padding: 20px;
-    border: 2px solid #333;
     width: 90%;
     max-width: 600px;
-    background-color: rgba(142, 168, 234, 0.8); /* Cambia el color de fondo según sea necesario */
+    background-color: rgb(245, 246, 246);
     display: flex;
     flex-direction: column;
     align-items: center;
+    border-radius: 20px; /* Ajusta el radio para redondear las esquinas */
+    border: 2px solid #ddd; /* Añade un borde para un mejor aspecto */
+}
+.team-members {
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* Espacio entre las imágenes */
+    flex-wrap: wrap; /* Envolver las imágenes en múltiples líneas si no caben */
 }
 .team-member {
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-bottom: 10px;
+    width: 150px; /* Ancho fijo para cada miembro del equipo */
 }
 .team-member img {
-    width: 100px; /* Ajusta el tamaño de la imagen según sea necesario */
+    width: 100px;
     height: auto;
     margin-bottom: 5px;
     border-radius: 50%;
@@ -34,7 +43,7 @@ body {
 #backButton {
     margin-top: 20px;
     padding: 10px 20px;
-    background-color: #007bff;
+    background-color: #bac346;
     color: #fff;
     border: none;
     border-radius: 5px;
