@@ -84,4 +84,5 @@ document.getElementById('animals').addEventListener('dragend', function(event) {
             sonidoAnimal.play();
         }
     }
+    
 });
