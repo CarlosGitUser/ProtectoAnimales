@@ -8,14 +8,13 @@
     <link rel="icon" type="image/x-icon" href="img/Colorful_3D_Illustrations_Little_Crocodile_Logo-removebg-preview.png">
     <script src="js/canvas.js" defer></script>
     <script src="js/movimiento.js" defer></script>
+    <script src="script_game.js" defer></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
 </head>
 <body>
-    <audio autoplay loop>
-        <source src="media/nintendo_song_short5-25171.mp3" type="audio/mpeg">
-        Tu navegador no soporta el elemento de audio.
-      </audio>
+   
+    <audio autoplay loop id="musica" src="media/nintendo_song_short5-25171.mp3"></audio>
     <div id="menu">
         <div id="tiempo">Tiempo: <span id="tiempo-jugado">00:00:00</span></div>
         <div id="estado">Estado: Jugando</div>
@@ -32,9 +31,9 @@
     </div>
     
     <div id="hause-animals">
-        <canvas width="200px" height="200px" id="Himage-1"></canvas>
-        <canvas width="200px" height="200px" id="Himage-2"></canvas>
-        <canvas width="200px" height="200px" id="Himage-3"></canvas>
+        <canvas width="200px" height="200px" id="Himage-1" class="canvas"></canvas>
+        <canvas width="200px" height="200px" id="Himage-2" class="canvas"></canvas>
+        <canvas width="200px" height="200px" id="Himage-3" class="canvas"></canvas>
     </div>
 
     <div id="animals">
@@ -44,6 +43,6 @@
     </div>
 
     
-    <script src="script_game.js"></script>
+    
 </body>
 </html>

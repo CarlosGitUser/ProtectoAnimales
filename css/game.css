@@ -41,7 +41,7 @@ body{
 
 /*-------- Canvas ------------*/
 #hause-animals, #animals{
-    width: 1600px;
+
     background-color: grey;
     height: 300px;
     border-radius: 30px;
@@ -51,7 +51,7 @@ body{
     margin-bottom: 20px;
 }
 #Himage-1,#Himage-2, #Himage-3 {
-    border-radius: 50%;
+    border-radius: 20%;
 }
 
 /*Esto es para organizar cada elemento de cada contenedor */
@@ -63,8 +63,6 @@ body{
     padding: 30px;
     padding-left: 50px;
     padding-right: 50px;
-    
-   
 
 }
 
