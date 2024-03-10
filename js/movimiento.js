@@ -68,8 +68,17 @@ function soltado(event) {
         etiquetaAnimal.style.visibility = 'visible';
         etiquetaAnimal.innerHTML = nombreHabitat;
         console.log("Correcto");
-        console.log("Habitat " + nombreHabitat);
         
+        // Modificar puntuacion
+        let puntuacion = document.getElementById("puntuacion-actual");
+        let puntos = parseInt(puntuacion.textContent) + 100;
+        puntuacion.innerHTML = puntos;
+
+        //Reproducir sonido de acierto
+        let sonidoAcierto = document.getElementById("sonido-succes");
+        if(sonidoAcierto)
+            sonidoAcierto.play();
+
         // Reproducir sonido del animal correspondiente
         var sonidoAnimal = document.getElementById('sonido-' + nombreAnimal.toLowerCase());
         if (sonidoAnimal) {
@@ -77,6 +86,15 @@ function soltado(event) {
         }
     } else {
         console.log("Incorrecto");
+
+        // Modificar puntos en caso de error
+        let puntuacion = document.getElementById("puntuacion-actual");
+        let puntos = parseInt(puntuacion.textContent) - 50;
+        puntuacion.innerHTML = puntos;
+        //Reproducir sonido de error
+        var sonidoError = document.getElementById("sonido-error");
+        if(sonidoError)
+            sonidoError.play();
     }
 }
 

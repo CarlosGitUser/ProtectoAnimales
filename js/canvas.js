@@ -1,4 +1,12 @@
 
+// Borrar variables previas
+localStorage.removeItem("animal-1");
+localStorage.removeItem("animal-2");
+localStorage.removeItem("animal-3");
+localStorage.removeItem("puntuacion");
+
+
+
 // Orden de los elementos
 
 let lista = [1,2,3,4,5,6,7,8,9];
@@ -19,6 +27,18 @@ const img_3 = lista[2] - 1;
  const aux = [img_1, img_2, img_3];
  shuffle(aux);
  console.log(aux);
+
+// Almacenar los siguientes animales en el local storage;
+  //Variables de los siguientes animales
+  const sigAnimal_1 = lista[3] - 1;
+  const sigAnimal_2 = lista[4] - 1;
+  const sigAnimal_3 = lista[5] - 1;
+
+
+localStorage.setItem("animal-1", animales[sigAnimal_1]);
+localStorage.setItem("animal-2", animales[sigAnimal_2]);
+localStorage.setItem("animal-3", animales[sigAnimal_3]);
+
 
 // Funcion para dibujar imagenes en canvas
 

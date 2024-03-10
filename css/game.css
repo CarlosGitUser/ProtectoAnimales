@@ -88,3 +88,12 @@ body{
     visibility: hidden;
 }
 
+#siguiente{
+    visibility: hidden;
+    color: rgb(255, 255, 255);
+    border-radius: 20px;
+    background-color: blue;
+    width: 100px;
+    height: 80px;
+}
+
