@@ -43,7 +43,14 @@ function soltado(event) {
 
     const id = event.dataTransfer.getData('text');
     const draggableElement = document.getElementById(id);
+    
+    // Obtener el nombre del canvas del animal que se está arrastrando
+    const nombreAnimal = draggableElement.getAttribute('name');
+
     const canvasId = event.target.id;
+
+    // Obtener el nombre del canvas del hábitat donde se está colocando el animal
+    const nombreHabitat = document.getElementById(canvasId).getAttribute('name');
 
     const canvas = document.getElementById(canvasId); // Obtener el canvas objetivo
     const ctx = canvas.getContext('2d');
@@ -52,9 +59,21 @@ function soltado(event) {
     const x = event.clientX - rect.left;
     const y = event.clientY - rect.top;
 
+    //Configuracion para determinar si el animal y el habitat son correctos
+    if(nombreAnimal == nombreHabitat){
+        ctx.drawImage(draggableElement, 100, 150, 200, 200);
+        elemento.style.visibility = 'hidden';
+        //Agregar funcion para incrementar puntaje
+        console.log("Correcto");
+    }else{
+        console.log("Incorrecto");
+        //Agregar funcion para decrementar puntaje
+    }
+
+
     // Dibujar la imagen arrastrada sobre el canvas en las coordenadas x, y
-    ctx.drawImage(draggableElement, 100, 150, 200, 200);
-   
+    
 }
+
 
 window.addEventListener('load', iniciar, false);
