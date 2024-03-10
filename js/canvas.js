@@ -1,17 +1,17 @@
 
-//Orden de los elementos
+// Orden de los elementos
 
 let lista = [1,2,3,4,5,6,7,8,9];
 lista = lista.sort(function() {return Math.random() - 0.5});
 
-//Array con las imagenes en orden
+// Array con las imagenes en orden
 const animales = ["ajolote", "buho", "caballo", "capybara", "delfin", "gato", "leon", "pato", "serpiente"];
 
-//Funcion para desordenar un array
+// Funcion para desordenar un array
 function shuffle(array) {
     array.sort(() => Math.random() - 0.5);
   }
-// variables para colocar las imagenes en desorden
+// Variables para colocar las imagenes en desorden
 const img_1 = lista[0] - 1;
 const img_2 = lista[1] - 1;
 const img_3 = lista[2] - 1;
@@ -20,7 +20,7 @@ const img_3 = lista[2] - 1;
  shuffle(aux);
  console.log(aux);
 
-//Funcion para dibujar imagenes en canvas
+// Funcion para dibujar imagenes en canvas
 
 function dibujarCanvas(canvasId, imagenSrc) {
     var canvas = document.getElementById(canvasId);
@@ -33,23 +33,28 @@ function dibujarCanvas(canvasId, imagenSrc) {
         ctx.drawImage(imagen, 0, 0, canvas.width, canvas.height);
     };
 }
-
+// Funcion para modificar el atributo name de un elemento
 function nombrarCanvas(canvasId, nombre){
     let canva = document.getElementById(canvasId);
     canva.setAttribute("name", nombre);
 }
-    //variables para el src de las imagenes
-        //Animales
+// Funcion para modificar la id  de una label
+function nombrarEtiqueta(etiquetaId, id){
+    let etiqueta = document.getElementById(etiquetaId);
+    etiqueta.setAttribute("id", id);
+}
+    // Variables para el src de las imagenes
+        // Animales
         const animal_1 = "../img/" + animales[img_1] + ".png";
         const animal_2 = "../img/" + animales[img_2] + ".png";
         const animal_3 = "../img/" + animales[img_3] + ".png";
 
-        //Habitats
+        // Habitats
         const habitat_1 = "../img/H" + animales[aux[0]] + ".png";
         const habitat_2 = "../img/H" + animales[aux[1]] + ".png";
         const habitat_3 = "../img/H" + animales[aux[2]] + ".png";
 
-    //Llamas para dibujar los canvas 
+    // Llamas para dibujar los canvas 
     dibujarCanvas("Aimage-1", animal_1);
     dibujarCanvas("Aimage-2", animal_2);
     dibujarCanvas("Aimage-3", animal_3);
@@ -59,7 +64,7 @@ function nombrarCanvas(canvasId, nombre){
     dibujarCanvas("Himage-2", habitat_2);
     dibujarCanvas("Himage-3", habitat_3);
 
-    //Colocar nombre a cada canvas
+    // Colocar nombre a cada canvas
     nombrarCanvas("Aimage-1", animales[img_1]);
     nombrarCanvas("Aimage-2", animales[img_2]);
     nombrarCanvas("Aimage-3", animales[img_3]);
@@ -67,6 +72,11 @@ function nombrarCanvas(canvasId, nombre){
     nombrarCanvas("Himage-1", animales[aux[0]]);
     nombrarCanvas("Himage-2", animales[aux[1]]);
     nombrarCanvas("Himage-3", animales[aux[2]]);
+
+    // Colocar clase a las etiquetas
+    nombrarEtiqueta("label-1", animales[aux[0]]);
+    nombrarEtiqueta("label-2", animales[aux[1]]);
+    nombrarEtiqueta("label-3", animales[aux[2]]);
 
 
 

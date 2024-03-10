@@ -84,4 +84,7 @@ body{
     padding-right: 10px;
 }
 
+#label-1, #label-2, #label-3{
+    visibility: hidden;
+}
 

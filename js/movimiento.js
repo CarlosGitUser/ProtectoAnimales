@@ -59,9 +59,16 @@ function soltado(event) {
 
     //Configuracion para determinar si el animal y el habitat son correctos
     if(nombreAnimal == nombreHabitat){
+        // Colocar la imagen del animal sobre el canvas
         ctx.drawImage(draggableElement, 100, 150, 200, 200);
         elemento.style.visibility = 'hidden';
+
+        // Mostrar la etiqueta del animal
+       const etiquetaAnimal = document.getElementById(nombreHabitat);
+        etiquetaAnimal.style.visibility = 'visible';
+        etiquetaAnimal.innerHTML = nombreHabitat;
         console.log("Correcto");
+        console.log("Habitat " + nombreHabitat);
         
         // Reproducir sonido del animal correspondiente
         var sonidoAnimal = document.getElementById('sonido-' + nombreAnimal.toLowerCase());
