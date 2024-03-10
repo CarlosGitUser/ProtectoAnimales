@@ -4,7 +4,8 @@ localStorage.removeItem("animal-1");
 localStorage.removeItem("animal-2");
 localStorage.removeItem("animal-3");
 localStorage.removeItem("puntuacion");
-
+localStorage.removeItem("auxPtn");
+localStorage.removeItem("tiempoJugado");
 
 
 // Orden de los elementos

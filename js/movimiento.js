@@ -1,3 +1,5 @@
+// Resetear la puntuacion actual
+
 function iniciar(){
     var imagenes = document.querySelectorAll('#animals > canvas');
     const canvases = document.querySelectorAll('.canvas');
@@ -36,6 +38,30 @@ function arrastrado(e){
     console.log("funcion arrastrado");
 }
 
+function obtenerNombrePagina() {
+    // Obtener la ruta de la página actual
+    let rutaPagina = window.location.pathname;
+    
+    // Obtener el último segmento de la ruta (nombre del archivo)
+    let nombrePagina = rutaPagina.substring(rutaPagina.lastIndexOf('/') + 1);
+    
+    // Retornar el nombre de la página
+    return nombrePagina;
+}
+
+function redirigirPagina() {
+    // Esperar 1 segundo (1000 milisegundos)
+
+    setTimeout(function() {
+        // Redirigir a otra página
+        let auxPag = obtenerNombrePagina();
+        if(auxPag == "juego.html")
+            window.location.href = "../juego2.html";
+        else 
+            window.location.href = "../index.html"; //Enviar a la pagina de puntos
+    }, 1000);
+}
+
 function soltado(event) {
     event.preventDefault();
 
@@ -70,11 +96,27 @@ function soltado(event) {
         console.log("Correcto");
         
         // Modificar puntuacion
+
         let puntuacion = document.getElementById("puntuacion-actual");
         let puntos = parseInt(puntuacion.textContent) + 100;
         puntuacion.innerHTML = puntos;
 
-        //Reproducir sonido de acierto
+        // Modificar aciertos para mostrar el boton
+        aciertos ++;
+
+        if(aciertos == 3){
+            const btn = document.getElementById("siguiente");
+            btn.style.visibility = 'visible';
+            // Almacenar los puntos de la partida 
+            
+            localStorage.setItem("auxPtn", puntos);
+            //const btn2 = getElementById("finalizar");
+           // btn2.style.visibility = 'visible';
+
+           redirigirPagina();
+        }
+
+        // Reproducir sonido de acierto
         let sonidoAcierto = document.getElementById("sonido-succes");
         if(sonidoAcierto)
             sonidoAcierto.play();
@@ -97,5 +139,5 @@ function soltado(event) {
             sonidoError.play();
     }
 }
-
+var aciertos = 0;
 window.addEventListener('load', iniciar, false);

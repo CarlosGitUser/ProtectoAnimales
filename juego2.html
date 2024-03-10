@@ -6,7 +6,7 @@
     <title>Juego</title>
     <link rel="stylesheet" href="css/game.css">
     <link rel="icon" type="image/x-icon" href="img/Colorful_3D_Illustrations_Little_Crocodile_Logo-removebg-preview.png">
-    <script src="js/canvas.js" defer></script>
+    <script src="js/canvas2.js" defer></script>
     <script src="js/movimiento.js" defer></script>
     <script src="script_game.js" defer></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
@@ -62,10 +62,13 @@
         Tu navegador no soporta el elemento de audio. 
     </audio>
     
+    <script>
+        
+    </script>
     <div id="menu">
         <div id="tiempo">Tiempo: <span id="tiempo-jugado">00:00:00</span></div>
         <div id="estado">Estado: Jugando</div>
-        <div id="puntuacion">Puntuación:  <span id="puntuacion-actual"> 0</span></div>
+        <div id="puntuacion">Puntuación:  <span id="puntuacion-actual"></span></div>
         <div id="opciones">
             <button id="pausar" class="icono"><i class="fa-solid fa-play"></i></button>
             <button id="pausar-musica" class="icono"><i class="fas fa-music"></i></button>
@@ -86,6 +89,7 @@
         <canvas width="200px" height="200px" id="Aimage-3" draggable="true"></canvas>
     </div>
 
-    <button id="finalizar">Terminar</button>
+    <button id="siguiente"><a href="index.html">Finalizar</a></button>
+
 </body>
 </html>
