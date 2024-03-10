@@ -13,11 +13,47 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&family=Rubik+Doodle+Shadow&display=swap" rel="stylesheet">
-
 </head>
 <body>
    
     <audio autoplay loop id="musica" src="media/nintendo_song_short5-25171.mp3"></audio>
+    <audio id="sonido-ajolote">
+        <source src="/media/ajolotesonido.mp3" type="audio/mpeg">
+        Tu navegador no soporta el elemento de audio.
+    </audio>
+    <audio id="sonido-buho">
+        <source src="/media/buhosonido.mp3" type="audio/mpeg">
+        Tu navegador no soporta el elemento de audio.
+    </audio>
+    <audio id="sonido-caballo">
+        <source src="/media/caballosonido.mp3" type="audio/mpeg">
+        Tu navegador no soporta el elemento de audio.
+    </audio>
+    <audio id="sonido-delfin">
+        <source src="/media/delfinsonido.mp3" type="audio/mpeg">
+        Tu navegador no soporta el elemento de audio.
+    </audio>
+    <audio id="sonido-capybara">
+        <source src="/media/capybaraS.mp3" type="audio/mpeg">
+        Tu navegador no soporta el elemento de audio.
+    </audio>
+    <audio id="sonido-gato">
+        <source src="/media/gatosonido.mp3" type="audio/mpeg">
+        Tu navegador no soporta el elemento de audio.
+    </audio>
+    <audio id="sonido-leon">
+        <source src="/media/leonsonido.mp3" type="audio/mpeg">
+        Tu navegador no soporta el elemento de audio.
+    </audio>
+    <audio id="sonido-pato">
+        <source src="/media/patosonido.mp3" type="audio/mpeg">
+        Tu navegador no soporta el elemento de audio.
+    </audio>
+    <audio id="sonido-serpiente">
+        <source src="/media/serpientesonido.mp3" type="audio/mpeg">
+        Tu navegador no soporta el elemento de audio.
+    </audio>
+    
     <div id="menu">
         <div id="tiempo">Tiempo: <span id="tiempo-jugado">00:00:00</span></div>
         <div id="estado">Estado: Jugando</div>
@@ -27,6 +63,7 @@
             <button id="pausar-musica" class="icono"><i class="fas fa-music"></i></button>
             <button id="continuar" class="icono"><i class="fas fa-play"></i></button>
             <button id="salir" class="icono"><i class="fas fa-sign-out-alt"></i></button>
+            <button id="ayuda" class="icono"><i class="fas fa-question-circle"></i></button>
         </div>
     </div>
     
@@ -41,8 +78,5 @@
         <canvas width="200px" height="200px" id="Aimage-2" draggable="true"></canvas>
         <canvas width="200px" height="200px" id="Aimage-3" draggable="true"></canvas>
     </div>
-
-    
-    
 </body>
 </html>

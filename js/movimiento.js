@@ -4,14 +4,13 @@ function iniciar(){
     canvases.forEach(canvas => {
         canvas.addEventListener('dragover', eventoOver);
         canvas.addEventListener('drop', soltado);
-      });
+    });
 
     for (let i = 0; i < imagenes.length; i++){
         imagenes[i].addEventListener('dragstart', arrastrado, false);
         imagenes[i].addEventListener('dragend', finalizado, false);
     }
 }
-
 
 function eventoEnter(e){
     console.log("Evento de dragenter");
@@ -25,7 +24,6 @@ function eventoOver(e){
 
 function finalizado(e){
     elemento = e.target;
-    //elemento.style.visibility = 'hidden';
     console.log("funcion finalizado");
 }
 
@@ -63,17 +61,16 @@ function soltado(event) {
     if(nombreAnimal == nombreHabitat){
         ctx.drawImage(draggableElement, 100, 150, 200, 200);
         elemento.style.visibility = 'hidden';
-        //Agregar funcion para incrementar puntaje
         console.log("Correcto");
-    }else{
+        
+        // Reproducir sonido del animal correspondiente
+        var sonidoAnimal = document.getElementById('sonido-' + nombreAnimal.toLowerCase());
+        if (sonidoAnimal) {
+            sonidoAnimal.play();
+        }
+    } else {
         console.log("Incorrecto");
-        //Agregar funcion para decrementar puntaje
     }
-
-
-    // Dibujar la imagen arrastrada sobre el canvas en las coordenadas x, y
-    
 }
-
 
 window.addEventListener('load', iniciar, false);

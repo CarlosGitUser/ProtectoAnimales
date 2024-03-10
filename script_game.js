@@ -19,8 +19,8 @@ function actualizarTiempo() {
 
         // Formatear tiempo a cadena "hh:mm:ss"
         var tiempoFormateado = (horas < 10 ? '0' : '') + horas + ':' +
-                               (minutos < 10 ? '0' : '') + minutos + ':' +
-                               (segundos < 10 ? '0' : '') + segundos;
+                            (minutos < 10 ? '0' : '') + minutos + ':' +
+                            (segundos < 10 ? '0' : '') + segundos;
 
         // Actualizar el contenido del elemento con el tiempo jugado
         document.getElementById('tiempo-jugado').textContent = tiempoFormateado;
@@ -68,3 +68,20 @@ function actualizarTiempo() {
 
 // Llamar a la función para comenzar a actualizar el tiempo jugado
 actualizarTiempo();
+
+// Agregar la lógica para manejar la colocación de animales en su hábitat
+document.getElementById('animals').addEventListener('dragend', function(event) {
+    var animalArrastrado = event.target.id;
+    var habitat = event.target.parentElement.id;
+
+    // Aquí puedes agregar la lógica para determinar si el animal se colocó correctamente en su hábitat
+    // Por ejemplo, podrías comparar el ID del animal con el ID del hábitat para ver si son los mismos
+    
+    // Si el animal se coloca correctamente, reproduces el sonido correspondiente
+    if (animalArrastrado === habitat) {
+        var sonidoAnimal = document.getElementById('sonido-' + animalArrastrado);
+        if (sonidoAnimal) {
+            sonidoAnimal.play();
+        }
+    }
+});
