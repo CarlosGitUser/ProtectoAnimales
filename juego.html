@@ -8,20 +8,42 @@
     <link rel="icon" type="image/x-icon" href="img/Colorful_3D_Illustrations_Little_Crocodile_Logo-removebg-preview.png">
     <script src="js/canvas.js" defer></script>
     <script src="js/movimiento.js" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
 </head>
 <body>
+    <audio autoplay loop>
+        <source src="media/nintendo_song_short5-25171.mp3" type="audio/mpeg">
+        Tu navegador no soporta el elemento de audio.
+      </audio>
+    <div id="menu">
+        <div id="tiempo">Tiempo: <span id="tiempo-jugado">00:00:00</span></div>
+        <div id="estado">Estado: Jugando</div>
+        <div id="opciones">
+            
+            <button id="pausar" class="icono"><i class="fa-solid fa-play"></i></button>
 
+            <button id="pausar-musica" class="icono"><i class="fas fa-music"></i></button>
+
+            <button id="continuar" class="icono"><i class="fas fa-play"></i></button>
+            <button id="salir" class="icono"><i class="fas fa-sign-out-alt"></i></button>
+            <button id="ayuda" class="icono"><i class="fas fa-question-circle"></i></button>
+        </div>
+    </div>
+    
     <div id="hause-animals">
-        <canvas width="300px" height="300px" id="Himage-1"></canvas>
-        <canvas width="300px" height="300px" id="Himage-2"></canvas>
-        <canvas width="300px" height="300px" id="Himage-3"></canvas>
+        <canvas width="200px" height="200px" id="Himage-1"></canvas>
+        <canvas width="200px" height="200px" id="Himage-2"></canvas>
+        <canvas width="200px" height="200px" id="Himage-3"></canvas>
     </div>
 
     <div id="animals">
-        <canvas width="300px" height="300px" id="Aimage-1" draggable="true"></canvas>
-        <canvas width="300px" height="300px" id="Aimage-2" draggable="true"></canvas>
-        <canvas width="300px" height="300px" id="Aimage-3" draggable="true"></canvas>
+        <canvas width="150px" height="150px" id="Aimage-1" draggable="true"></canvas>
+        <canvas width="150px" height="150px" id="Aimage-2" draggable="true"></canvas>
+        <canvas width="150px" height="150px" id="Aimage-3" draggable="true"></canvas>
     </div>
 
+    
+    <script src="script_game.js"></script>
 </body>
 </html>

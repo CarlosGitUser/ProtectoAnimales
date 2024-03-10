@@ -4,15 +4,51 @@
     box-sizing: border-box;
 }
 body{
-    background-image: url('../img/desktop-wallpaper-2d-game-backgrounds-1380x820-for-your-mobile-tablet-2d-game.jpg'); /* Cambia 'ruta_de_tu_imagen.jpg' por la ruta de tu imagen de fondo */
+    background-image: url('../img/fonnature.jpg'); /* Cambia 'ruta_de_tu_imagen.jpg' por la ruta de tu imagen de fondo */
     background-size: cover; /* Cubrir toda la pantalla */
     background-repeat: no-repeat; /* Evitar que se repita */
+    padding: 30px;
+    margin-top: 100px;
 }
 
+/*---- Menu ------*/
+#menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: #f2f2f2;
+    margin-top: 0%;
+}
+
+#tiempo, #estado, #opciones {
+    margin: 0 10px;
+}
+
+#opciones .icono {
+    padding: 5px;
+    margin: 0 5px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#opciones .icono:hover {
+    background-color: #45a049; /* Color al pasar el mouse sobre los botones */
+}
+
+/*-------- Canvas ------------*/
 #hause-animals, #animals{
-    width: 1600px;
-    height: 300px;
     border-radius: 30px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 20px;
+}
+#Himage-1,#Himage-2, #Himage-3 {
+    border-radius: 50%;
 }
 
 /*Esto es para organizar cada elemento de cada contenedor */
@@ -20,12 +56,23 @@ body{
     display: flex;
     justify-content: space-around;
     align-items: flex-start;
+    background-color: #8fa89f;
+    padding: 30px;
+    padding-left: 50px;
+    padding-right: 50px;
+    
+   
+
 }
 
 #animals{
     display: flex;
     justify-content: space-around;
     align-items: flex-end;
+    background-color: #a1b4a5;
+    padding: 40px;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 
