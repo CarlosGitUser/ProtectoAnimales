@@ -1,6 +1,22 @@
-// Resetear la puntuacion actual
+// Crear y agregar las etiquetas de enlace para las fuentes al elemento <head> del documento
+function agregarEtiquetasDeFuentes() {
+    const linkAnton = document.createElement('link');
+    linkAnton.rel = 'stylesheet';
+    linkAnton.href = 'https://fonts.googleapis.com/css2?family=Anton';
 
-function iniciar(){
+    const linkJost = document.createElement('link');
+    linkJost.rel = 'stylesheet';
+    linkJost.href = 'https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900';
+
+    document.head.appendChild(linkAnton);
+    document.head.appendChild(linkJost);
+}
+
+// Llamar a la función para agregar las etiquetas de enlace para las fuentes
+agregarEtiquetasDeFuentes();
+
+// Tu código JavaScript aquí
+function iniciar() {
     var imagenes = document.querySelectorAll('#animals > canvas');
     const canvases = document.querySelectorAll('.canvas');
     canvases.forEach(canvas => {
@@ -8,28 +24,28 @@ function iniciar(){
         canvas.addEventListener('drop', soltado);
     });
 
-    for (let i = 0; i < imagenes.length; i++){
+    for (let i = 0; i < imagenes.length; i++) {
         imagenes[i].addEventListener('dragstart', arrastrado, false);
         imagenes[i].addEventListener('dragend', finalizado, false);
     }
 }
 
-function eventoEnter(e){
+function eventoEnter(e) {
     console.log("Evento de dragenter");
     e.preventDefault();
 }
 
-function eventoOver(e){
+function eventoOver(e) {
     console.log("Evento de dragOver");
     e.preventDefault();
 }
 
-function finalizado(e){
+function finalizado(e) {
     elemento = e.target;
     console.log("funcion finalizado");
 }
 
-function arrastrado(e){
+function arrastrado(e) {
     elemento = e.target;
     const offsetX = e.target.width / 2;
     const offsetY = e.target.height / 2;
@@ -41,10 +57,10 @@ function arrastrado(e){
 function obtenerNombrePagina() {
     // Obtener la ruta de la página actual
     let rutaPagina = window.location.pathname;
-    
+
     // Obtener el último segmento de la ruta (nombre del archivo)
     let nombrePagina = rutaPagina.substring(rutaPagina.lastIndexOf('/') + 1);
-    
+
     // Retornar el nombre de la página
     return nombrePagina;
 }
@@ -52,12 +68,12 @@ function obtenerNombrePagina() {
 function redirigirPagina() {
     // Esperar 1 segundo (1000 milisegundos)
 
-    setTimeout(function() {
+    setTimeout(function () {
         // Redirigir a otra página
         let auxPag = obtenerNombrePagina();
-        if(auxPag == "juego.html")
+        if (auxPag == "juego.html")
             window.location.href = "../juego2.html";
-        else 
+        else
             window.location.href = "../index.html"; //Enviar a la pagina de puntos
     }, 1000);
 }
@@ -67,7 +83,7 @@ function soltado(event) {
 
     const id = event.dataTransfer.getData('text');
     const draggableElement = document.getElementById(id);
-    
+
     // Obtener el nombre del canvas del animal que se está arrastrando
     const nombreAnimal = draggableElement.getAttribute('name');
 
@@ -84,17 +100,22 @@ function soltado(event) {
     const y = event.clientY - rect.top;
 
     //Configuracion para determinar si el animal y el habitat son correctos
-    if(nombreAnimal == nombreHabitat){
+    if (nombreAnimal == nombreHabitat) {
         // Colocar la imagen del animal sobre el canvas
         ctx.drawImage(draggableElement, 100, 150, 200, 200);
         elemento.style.visibility = 'hidden';
 
-        // Mostrar la etiqueta del animal
-       const etiquetaAnimal = document.getElementById(nombreHabitat);
+        // Mostrar la etiqueta del animal con estilos
+        const etiquetaAnimal = document.getElementById(nombreHabitat);
         etiquetaAnimal.style.visibility = 'visible';
         etiquetaAnimal.innerHTML = nombreHabitat;
+        etiquetaAnimal.style.fontSize = '36px'; // Tamaño de la fuente
+        etiquetaAnimal.style.fontFamily = 'Jost'; // Familia de fuentes
+        etiquetaAnimal.style.fontWeight = 'bold'; // Negrita
+        etiquetaAnimal.style.color = 'black'; // Color del texto
+        etiquetaAnimal.style.textAlign = 'center';
         console.log("Correcto");
-        
+
         // Modificar puntuacion
 
         let puntuacion = document.getElementById("puntuacion-actual");
@@ -102,23 +123,23 @@ function soltado(event) {
         puntuacion.innerHTML = puntos;
 
         // Modificar aciertos para mostrar el boton
-        aciertos ++;
+        aciertos++;
 
-        if(aciertos == 3){
+        if (aciertos == 3) {
             const btn = document.getElementById("siguiente");
             btn.style.visibility = 'visible';
             // Almacenar los puntos de la partida 
-            
+
             localStorage.setItem("auxPtn", puntos);
             //const btn2 = getElementById("finalizar");
-           // btn2.style.visibility = 'visible';
+            // btn2.style.visibility = 'visible';
 
-           redirigirPagina();
+            redirigirPagina();
         }
 
         // Reproducir sonido de acierto
         let sonidoAcierto = document.getElementById("sonido-succes");
-        if(sonidoAcierto)
+        if (sonidoAcierto)
             sonidoAcierto.play();
 
         // Reproducir sonido del animal correspondiente
@@ -135,7 +156,7 @@ function soltado(event) {
         puntuacion.innerHTML = puntos;
         //Reproducir sonido de error
         var sonidoError = document.getElementById("sonido-error");
-        if(sonidoError)
+        if (sonidoError)
             sonidoError.play();
     }
 }

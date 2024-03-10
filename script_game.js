@@ -73,11 +73,6 @@ actualizarTiempo();
 document.getElementById('animals').addEventListener('dragend', function(event) {
     var animalArrastrado = event.target.id;
     var habitat = event.target.parentElement.id;
-
-    // Aquí puedes agregar la lógica para determinar si el animal se colocó correctamente en su hábitat
-    // Por ejemplo, podrías comparar el ID del animal con el ID del hábitat para ver si son los mismos
-    
-    // Si el animal se coloca correctamente, reproduces el sonido correspondiente
     if (animalArrastrado === habitat) {
         var sonidoAnimal = document.getElementById('sonido-' + animalArrastrado);
         if (sonidoAnimal) {
