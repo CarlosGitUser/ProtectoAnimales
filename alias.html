@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Captura de Alias</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Honk&family=Rubik+Doodle+Shadow&family=Sixtyfour&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="img/Colorful_3D_Illustrations_Little_Crocodile_Logo-removebg-preview.png">
+    <style>
+        /* Estilos CSS para la captura de alias */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Rubik Doodle Shadow', sans-serif;
+            overflow: hidden; /* Para ocultar el desbordamiento del video */
+            background-color: #222; /* Color de fondo */
+        }
+
+        header {
+            width: 100%;
+            height: 100vh; /* Utiliza toda la altura de la pantalla */
+            position: relative;
+        }
+
+        video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Para cubrir toda el área del video */
+        }
+
+        .overlay {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            background: rgba(0, 0, 0, 0.575); /* Fondo semi-transparente */
+            z-index: 1; /* Coloca el overlay encima del video */
+        }
+
+        .alias-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            z-index: 2; /* Coloca el formulario encima del overlay */
+            color: white; /* Color del texto */
+        }
+
+        .alias-container h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .alias-container input[type="text"] {
+            padding: 8px;
+            font-size: 18px;
+        }
+
+        .alias-container button {
+            padding: 8px 20px;
+            font-size: 18px;
+            background-color: #1ec62c;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        .alias-container button:hover {
+            background-color: #128c1a;
+        }
+
+        #welcome-message {
+            display: none; /* Oculta el mensaje de bienvenida inicialmente */
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 2;
+            color: white;
+        }
+
+        #previous-scores {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            z-index: 2;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <audio autoplay>
+        <source src="media/8bittownthemesong-59266.mp3" type="audio/mpeg">
+        Tu navegador no soporta el elemento de audio.
+    </audio>
+    <header>
+        <video onloadedmetadata="this.muted=true" autoplay loop>
+            <source src="media/jungle_-_95050 (540p).mp4">
+        </video>
+        <div class="overlay"></div>
+        <div class="alias-container" id="alias-container">
+            <h2>Ingresa tu alias:</h2>
+            <form id="alias-form">
+                <input type="text" id="alias" name="alias" placeholder="Ingresa tu alias">
+                <button type="submit">Guardar</button>
+            </form>
+            <p id="alias-error" style="display: none; color: red;">Por favor ingresa un alias.</p>
+        </div>
+        <div id="welcome-message">
+            <h2 id="welcome-text"></h2>
+        </div>
+        <div id="previous-scores">
+            <h3>Puntuaciones anteriores:</h3>
+            <ul id="scores-list"></ul>
+        </div>
+    </header>
+
+    <script>
+        // Función para obtener puntuaciones anteriores (simulación)
+        function getPreviousScores() {
+            // Simulación de obtener puntuaciones desde localStorage
+            var previousScores = localStorage.getItem('scores');
+            return previousScores ? JSON.parse(previousScores) : [];
+        }
+
+        // Función para mostrar puntuaciones anteriores
+        function displayPreviousScores() {
+            var scoresList = document.getElementById('scores-list');
+            var scores = getPreviousScores();
+
+            // Limpiar la lista antes de agregar puntuaciones
+            scoresList.innerHTML = '';
+
+            // Agregar cada puntuación a la lista
+            scores.forEach(function(score) {
+                var li = document.createElement('li');
+                li.textContent = score;
+                scoresList.appendChild(li);
+            });
+        }
+
+        // Función para almacenar el alias en localStorage
+        function saveAlias(alias) {
+            // Obtener puntuaciones anteriores
+            var scores = getPreviousScores();
+            // Agregar el alias a las puntuaciones
+            scores.push(alias);
+            // Guardar las puntuaciones actualizadas en localStorage
+            localStorage.setItem('scores', JSON.stringify(scores));
+        }
+
+        document.getElementById('alias-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            var alias = document.getElementById('alias').value;
+            if (alias.trim() !== '') {
+                // Almacenar el alias
+                saveAlias(alias);
+                // Mostrar el mensaje de bienvenida
+                document.getElementById('welcome-text').textContent = '¡Bienvenido, ' + alias + '!';
+                document.getElementById('welcome-message').style.display = 'block';
+                // Ocultar el formulario de captura de alias
+                document.getElementById('alias-container').style.display = 'none';
+                // Mostrar puntuaciones anteriores
+                displayPreviousScores();
+                // Redirigir a la página del juego después de 5 segundos (5000 milisegundos)
+                setTimeout(function() {
+                    window.location.href = 'juego.html'; // Reemplaza 'pagina_del_juego.html' con la URL de tu página del juego
+                }, 5000);
+            } else {
+                document.getElementById('alias-error').style.display = 'block';
+            }
+        });
+    </script>
+</body>
+</html>
