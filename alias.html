@@ -8,98 +8,11 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Honk&family=Rubik+Doodle+Shadow&family=Sixtyfour&display=swap" rel="stylesheet">
     <link rel="icon" type="image/x-icon" href="img/Colorful_3D_Illustrations_Little_Crocodile_Logo-removebg-preview.png">
-    <style>
-        /* Estilos CSS para la captura de alias */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Rubik Doodle Shadow', sans-serif;
-            overflow: hidden; /* Para ocultar el desbordamiento del video */
-            background-color: #222; /* Color de fondo */
-        }
-
-        header {
-            width: 100%;
-            height: 100vh; /* Utiliza toda la altura de la pantalla */
-            position: relative;
-        }
-
-        video {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover; /* Para cubrir toda el área del video */
-        }
-
-        .overlay {
-            width: 100%;
-            height: 100%;
-            position: absolute;
-            background: rgba(0, 0, 0, 0.575); /* Fondo semi-transparente */
-            z-index: 1; /* Coloca el overlay encima del video */
-        }
-
-        .alias-container {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            text-align: center;
-            z-index: 2; /* Coloca el formulario encima del overlay */
-            color: white; /* Color del texto */
-        }
-
-        .alias-container h2 {
-            font-size: 24px;
-            margin-bottom: 10px;
-        }
-
-        .alias-container input[type="text"] {
-            padding: 8px;
-            font-size: 18px;
-        }
-
-        .alias-container button {
-            padding: 8px 20px;
-            font-size: 18px;
-            background-color: #1ec62c;
-            color: white;
-            border: none;
-            cursor: pointer;
-        }
-
-        .alias-container button:hover {
-            background-color: #128c1a;
-        }
-
-        #welcome-message {
-            display: none; /* Oculta el mensaje de bienvenida inicialmente */
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            z-index: 2;
-            color: white;
-        }
-
-        #previous-scores {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            z-index: 2;
-            color: white;
-        }
-    </style>
+    <link rel="stylesheet" href="/css/alias.css">
 </head>
 <body>
     <audio autoplay>
-        <source src="media/8bittownthemesong-59266.mp3" type="audio/mpeg">
+        <source src="media/donkey-kong-country.mp3" type="audio/mpeg">
         Tu navegador no soporta el elemento de audio.
     </audio>
     <header>
@@ -109,8 +22,10 @@
         <div class="overlay"></div>
         <div class="alias-container" id="alias-container">
             <h2>Ingresa tu alias:</h2>
+            <br>
             <form id="alias-form">
-                <input type="text" id="alias" name="alias" placeholder="Ingresa tu alias">
+                <input type="text" id="alias" name="alias" placeholder="Ingresa tu alias"><br>
+                <br>
                 <button type="submit">Guardar</button>
             </form>
             <p id="alias-error" style="display: none; color: red;">Por favor ingresa un alias.</p>
@@ -168,7 +83,7 @@
                 // Almacenar el alias
                 saveAlias(alias);
                 // Mostrar el mensaje de bienvenida
-                document.getElementById('welcome-text').textContent = '¡Bienvenido, ' + alias + '!';
+                document.getElementById('welcome-text').textContent = '¡Bienvenido(a), ' + alias + '!';
                 document.getElementById('welcome-message').style.display = 'block';
                 // Ocultar el formulario de captura de alias
                 document.getElementById('alias-container').style.display = 'none';
@@ -178,6 +93,7 @@
                 setTimeout(function() {
                     window.location.href = 'juego.html'; // Reemplaza 'pagina_del_juego.html' con la URL de tu página del juego
                 }, 4000);
+
             } else {
                 document.getElementById('alias-error').style.display = 'block';
             }
