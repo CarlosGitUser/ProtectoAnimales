@@ -104,9 +104,19 @@ body {
   width: 120%;
 }
 
-.feli,
+
 #finalizacion {
   font-family: 'Otra fuente', sans-serif; /* Cambia el tipo de letra para los elementos dentro del div con id "finalizacion" */
+}
+
+.feli {
+  font-family: "Honk", system-ui;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+  font-variation-settings:
+    "MORF" 15,
+    "SHLN" 50;
 }
 
 .rubik-iso-regular {

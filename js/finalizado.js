@@ -11,9 +11,9 @@ function terminarJuego() {
   
   // Mostrar los datos del jugador
   let pts = localStorage.getItem("auxPts");
-  let name = localStorage.getItem("alias");
-  document.getElementById('alias').innerText = name;
-  console.log("alias: " + name);
+  var nameAux = localStorage.getItem("alias");
+  document.getElementById('alias').innerText = nameAux;
+  console.log("alias: " + nameAux);
   console.log("puntos: " + pts);
   document.getElementById('puntos').innerText = pts;
   const minutos = Math.floor(tiempo / 60);
@@ -56,6 +56,12 @@ function reiniciarJuego() {
     let segundos = tiempo % 60;
     let time = document.getElementById("tiempo");
     time.innerHTML += " " + minutos + " minutos con " + segundos + " segundos"
+
+    let fin = document.getElementById("fin");
+    let text = fin.textContent;
+
+    fin.innerHTML = name + ", " + text;
+
     guardarResultados(name, pts, tiempo);
   }
 
