@@ -75,7 +75,7 @@ function redirigirPagina() {
             window.location.href = "../juego2.html";
         else
             window.location.href = "../finalizado.html"; //Enviar a la pagina de puntos
-    }, 2000);
+    }, 1500);
 }
 
 function soltado(event) {
