@@ -13,9 +13,9 @@ function terminarJuego() {
   
   // Mostrar los datos del jugador
   let pts = localStorage.getItem("auxPts");
-  let name = localStorage.getItem("alias");
-  document.getElementById('alias').innerText = name;
-  console.log("alias: " + name);
+  var nameAux = localStorage.getItem("alias");
+  document.getElementById('alias').innerText = nameAux;
+  console.log("alias: " + nameAux);
   console.log("puntos: " + pts);
   document.getElementById('puntos').innerText = pts;
   const minutos = Math.floor(tiempo / 60);
@@ -24,24 +24,9 @@ function terminarJuego() {
 }
 
 function reiniciarJuego() {
-    clearInterval(intervaloTiempo); 
-  
-    //Limpiar el LocalStorage
-    localStorage.removeItem(alias);
-  
-    //Restablece valores
-    alias = '';
-    score = 0;
-    tiempo = 0;
-    musica = false;
-  
-    //pantalla de inicio del juego
-    window.location.href = "/index.html";
-  
-    // Reinicia la entrada del alias
-    const aliasInput = document.getElementById('aliasInput');
-    aliasInput.value = '';
-    aliasInput.focus(); // Colocar el foco en el campo de entrada del alias
+    localStorage.removeItem("auxPts");
+    window.location.href = "../juego.html";
+
   }
 
   function cargarResultados(){
@@ -58,6 +43,12 @@ function reiniciarJuego() {
     let segundos = tiempo % 60;
     let time = document.getElementById("tiempo");
     time.innerHTML += " " + minutos + " minutos con " + segundos + " segundos"
+
+    let fin = document.getElementById("fin");
+    let text = fin.textContent;
+
+    fin.innerHTML = name + ", " + text;
+
     guardarResultados(name, pts, tiempo);
   }
 
