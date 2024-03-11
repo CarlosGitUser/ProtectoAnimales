@@ -32,7 +32,7 @@ function reiniciarJuego() {
     musica = false;
   
     //pantalla de inicio del juego
-    mostrarPantalla('inicio');
+    window.location.href = "../index.html";
   
     // Reinicia la entrada del alias
     const aliasInput = document.getElementById('aliasInput');
