@@ -5,15 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Puntajes</title>
     <script src="js/obtenerScores.js" defer></script>
+    <link rel="stylesheet" href="/css/puntajesestilos.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Angkor&family=Anton&family=Antonio:wght@100..700&family=Jost:ital,wght@0,100..900;1,100..900&family=Kode+Mono:wght@400..700&family=Rubik+Bubbles&display=swap" rel="stylesheet">
 
 </head>
 <body>
     
-    <p>Puntajes Globales</p>
+    <p style="font-size: 30px;">Puntajes Globales</p>
     <button onclick="togglePuntajes()">Mostrar/Ocultar Puntajes</button>
     <div id="contenedorPuntajes" style="display: none;">
     </div>
-    <p>Tus mejores puntajes</p>
-    <button onclick="togglePuntajesPersonal()" id="contenedorPuntajesPorAlias">Mostrar/Ocultar Puntajes</button>
+    <p style="font-size: 30px;">Tus mejores puntajes</p>
+    <button onclick="togglePuntajesPersonal()" >Mostrar/Ocultar Puntajes</button>
+    <div id="contenedorPuntajesPorAlias"></div>
 </body>
 </html>
