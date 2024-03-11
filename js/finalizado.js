@@ -8,8 +8,6 @@ function terminarJuego() {
     tiempo: tiempo
   }));
 
-  // Mostrar la pantalla de felicitación
-  mostrarPantalla('finalizacion');
   
   // Mostrar los datos del jugador
   let pts = localStorage.getItem("auxPts");
@@ -26,7 +24,6 @@ function terminarJuego() {
 function reiniciarJuego() {
     localStorage.removeItem("auxPts");
     window.location.href = "../juego.html";
-
   }
 
   function cargarResultados(){
