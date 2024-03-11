@@ -6,7 +6,6 @@ body {
 }
 
 #finalizacion {
-<<<<<<< HEAD
   padding: 100px;
   text-align: center;
   display: flex; 
@@ -19,7 +18,6 @@ body {
   font-size: 20px;
   margin-bottom: 10px;
   font-family: Anton;
-=======
     padding: 100px;
     text-align: center;
     display: flex; 
@@ -64,7 +62,6 @@ body {
 .btn10:hover{
     border: 1px solid #fc330f;
     color: #ffd23e!important;
->>>>>>> 85aea0bd68b4c0cd98980d4dcd4da2df118204ab
 }
 
 .btn10 {
