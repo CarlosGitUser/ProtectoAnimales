@@ -22,8 +22,24 @@ function terminarJuego() {
 }
 
 function reiniciarJuego() {
-    localStorage.removeItem("auxPts");
-    window.location.href = "../juego.html";
+    clearInterval(intervaloTiempo); 
+  
+    //Limpiar el LocalStorage
+    localStorage.removeItem(alias);
+  
+    //Restablece valores
+    alias = '';
+    score = 0;
+    tiempo = 0;
+    musica = false;
+  
+    //pantalla de inicio del juego
+    window.location.href = '../alias.html';
+  
+    // Reinicia la entrada del alias
+    const aliasInput = document.getElementById('aliasInput');
+    aliasInput.value = '';
+    aliasInput.focus(); // Colocar el foco en el campo de entrada del alias
   }
 
   function cargarResultados(){
