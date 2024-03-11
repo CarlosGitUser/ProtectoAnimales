@@ -160,5 +160,14 @@ function soltado(event) {
             sonidoError.play();
     }
 }
+
+function borrarDatos(){
+    localStorage.removeItem("animal-1");
+    localStorage.removeItem("animal-2");
+    localStorage.removeItem("animal-3");
+    localStorage.removeItem("auxPtn")
+    localStorage.removeItem("tiempoJugado");
+}
+
 var aciertos = 0;
 window.addEventListener('load', iniciar, false);

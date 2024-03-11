@@ -26,7 +26,7 @@
             <form id="alias-form">
                 <input type="text" id="alias" name="alias" placeholder="Ingresa tu alias"><br>
                 <br>
-                <button type="submit">Guardar</button>
+                <button type="submit" onclick="displayPreviousScores()">Guardar</button>
             </form>
             <p id="alias-error" style="display: none; color: red;">Por favor ingresa un alias.</p>
         </div>
@@ -34,7 +34,7 @@
             <h2 id="welcome-text"></h2>
         </div>
         <div id="previous-scores">
-            <h3>Personitas que han jugado :D</h3>
+            <h3>Ingresa tu alias para ver tus anteriores puntajes</h3>
             <ul id="scores-list"></ul>
         </div>
     </header>
@@ -49,18 +49,29 @@
 
         // Función para mostrar puntuaciones anteriores
         function displayPreviousScores() {
-            var scoresList = document.getElementById('scores-list');
-            var scores = getPreviousScores();
+            let alias = localStorage.getItem("alias");
+            
+            // Obtener los datos almacenados actualmente en el localStorage
+            var datosGuardados = localStorage.getItem('allPuntuations');
 
-            // Limpiar la lista antes de agregar puntuaciones
-            scoresList.innerHTML = '';
+            // Convertir los datos recuperados en un array (si hay datos almacenados)
+            var arraysObjetos = datosGuardados ? JSON.parse(datosGuardados) : [];
 
-            // Agregar cada puntuación a la lista
-            scores.forEach(function(score) {
-                var li = document.createElement('li');
-                li.textContent = score;
-                scoresList.appendChild(li);
+            // Filtrar los puntajes por el valor del alias
+            var puntajesFiltrados = arraysObjetos.filter(function(puntaje) {
+                return puntaje.alias === alias;
             });
+
+            // Crear una tabla HTML dinámicamente con los puntajes filtrados
+            var titulo = '<h4>Tus anteriores puntajes </h4>';
+            var tablaHTML = titulo + '<table border="1"><tr><th>Alias</th><th>Puntos</th><th>Tiempo</th></tr>';
+            puntajesFiltrados.forEach(function(puntaje) {
+                tablaHTML += '<tr><td>' + puntaje.alias + '</td><td>' + puntaje.puntos + '</td><td>' + puntaje.tiempo + '</td></tr>';
+            });
+            tablaHTML += '</table>';
+
+            // Mostrar los puntajes en el contenedor
+            document.getElementById('previous-scores').innerHTML = tablaHTML;
         }
 
         // Función para almacenar el alias en localStorage
