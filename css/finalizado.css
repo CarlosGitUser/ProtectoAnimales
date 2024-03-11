@@ -17,7 +17,7 @@ body {
 #finalizacion p {
   font-size: 20px;
   margin-bottom: 10px;
-  font-family: Anton; /* Cambia el tipo de letra para los párrafos dentro de #finalizacion */
+  font-family: Jost; /* Cambia el tipo de letra para los párrafos dentro de #finalizacion */
 }
 
 .btn10 {
@@ -104,9 +104,19 @@ body {
   width: 120%;
 }
 
-.feli,
+
 #finalizacion {
   font-family: 'Otra fuente', sans-serif; /* Cambia el tipo de letra para los elementos dentro del div con id "finalizacion" */
+}
+
+.feli {
+  font-family: "Honk", system-ui;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+  font-variation-settings:
+    "MORF" 15,
+    "SHLN" 50;
 }
 
 .rubik-iso-regular {

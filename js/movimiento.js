@@ -1,4 +1,6 @@
 // Crear y agregar las etiquetas de enlace para las fuentes al elemento <head> del documento
+
+
 function agregarEtiquetasDeFuentes() {
     const linkAnton = document.createElement('link');
     linkAnton.rel = 'stylesheet';
@@ -147,6 +149,12 @@ function soltado(event) {
         if (sonidoAnimal) {
             sonidoAnimal.play();
         }
+
+        //Reproducir pronunciacion del animal correspondiente
+
+        var pronunAnimal = 'Sonido-' + nombreAnimal.toLowerCase();
+        if(pronunAnimal)
+            setTimeout(reproducirSonido(pronunAnimal),3000);
     } else {
         console.log("Incorrecto");
 
@@ -160,5 +168,19 @@ function soltado(event) {
             sonidoError.play();
     }
 }
+
+function borrarDatos(){
+    localStorage.removeItem("animal-1");
+    localStorage.removeItem("animal-2");
+    localStorage.removeItem("animal-3");
+    localStorage.removeItem("auxPtn")
+    localStorage.removeItem("tiempoJugado");
+}
+
+function reproducirSonido(elemento) {
+    var audioElement = document.getElementById(elemento);
+    audioElement.play();
+  }
+
 var aciertos = 0;
 window.addEventListener('load', iniciar, false);
