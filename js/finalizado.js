@@ -22,10 +22,11 @@ function terminarJuego() {
 }
 
 function reiniciarJuego() {
-    clearInterval(intervaloTiempo); 
   
     //Limpiar el LocalStorage
-    localStorage.removeItem(alias);
+    localStorage.removeItem("auxPts");
+    localStorage.removeItem("tiempoJugado");
+
   
     //Restablece valores
     alias = '';
@@ -34,7 +35,7 @@ function reiniciarJuego() {
     musica = false;
   
     //pantalla de inicio del juego
-    window.location.href = '../alias.html';
+    window.location.href = '../juego.html';
   
     // Reinicia la entrada del alias
     const aliasInput = document.getElementById('aliasInput');
