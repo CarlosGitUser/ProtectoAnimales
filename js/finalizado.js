@@ -51,6 +51,37 @@ function reiniciarJuego() {
     console.log("alias: " + name);
     console.log("puntos: " + pts);
     document.getElementById('puntos').innerText = pts;
+    let tiempo = parseInt(localStorage.getItem("tiempoJugado"));
+
+    // Calcular tiempo de juego
+    let minutos = Math.floor(tiempo / 60);
+    let segundos = tiempo % 60;
+    let time = document.getElementById("tiempo");
+    time.innerHTML += " " + minutos + " minutos con " + segundos + " segundos"
+    guardarResultados(name, pts, tiempo);
   }
 
+  function guardarResultados(nom, pts, tiempo){
+    // Almacenar el puntaje actual como objeto  
+    let puntaje ={
+      alias: nom,
+      puntos: pts,
+      tiempo: tiempo
+    };
+
+    // Obtener los datos almacenados actualmente en el localStorage
+    let datosGuardados = localStorage.getItem('allPuntuations');
+
+    // Convertir los datos recuperados en un array (si hay datos almacenados)
+    var arraysObjetos = datosGuardados ? JSON.parse(datosGuardados) : [];
+
+    // Agregar el nuevo array de objetos al array recuperado
+    arraysObjetos.push(puntaje);
+
+    // Convertir el nuevo array resultante a una cadena de texto JSON
+    var arraysString = JSON.stringify(arraysObjetos);
+
+    // Almacenar la cadena actualizada en el localStorage
+    localStorage.setItem('allPuntuations', arraysString);
+  }
   window.onload = cargarResultados();
