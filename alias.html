@@ -65,6 +65,9 @@
 
         // Función para almacenar el alias en localStorage
         function saveAlias(alias) {
+
+            localStorage.setItem("alias", alias);
+
             // Obtener puntuaciones anteriores
             var scores = getPreviousScores();
             // Agregar el alias a las puntuaciones
@@ -88,12 +91,15 @@
                 displayPreviousScores();
                 // Redirigir a la página del juego después de 5 segundos (5000 milisegundos)
                 setTimeout(function() {
-                    window.location.href = 'juego.html'; 
-                }, 5000);
+                    window.location.href = 'juego.html'; // Reemplaza 'pagina_del_juego.html' con la URL de tu página del juego
+                }, 4000);
+
             } else {
                 document.getElementById('alias-error').style.display = 'block';
             }
         });
     </script>
+
+  
 </body>
 </html>

@@ -74,8 +74,8 @@ function redirigirPagina() {
         if (auxPag == "juego.html")
             window.location.href = "../juego2.html";
         else
-            window.location.href = "../index.html"; //Enviar a la pagina de puntos
-    }, 1000);
+            window.location.href = "../finalizado.html"; //Enviar a la pagina de puntos
+    }, 1500);
 }
 
 function soltado(event) {
@@ -127,7 +127,7 @@ function soltado(event) {
 
         if (aciertos == 3) {
             const btn = document.getElementById("siguiente");
-            btn.style.visibility = 'visible';
+            //btn.style.visibility = 'visible';
             // Almacenar los puntos de la partida 
 
             localStorage.setItem("auxPtn", puntos);
