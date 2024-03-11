@@ -8,8 +8,6 @@ function terminarJuego() {
     tiempo: tiempo
   }));
 
-  // Mostrar la pantalla de felicitación
-  mostrarPantalla('finalizacion');
   
   // Mostrar los datos del jugador
   let pts = localStorage.getItem("auxPts");
