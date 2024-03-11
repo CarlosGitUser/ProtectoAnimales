@@ -34,7 +34,7 @@ function reiniciarJuego() {
     musica = false;
   
     //pantalla de inicio del juego
-    window.location.href = '/ProyectoAnimales/alias.html';
+    window.location.href = '../alias.html';
   
     // Reinicia la entrada del alias
     const aliasInput = document.getElementById('aliasInput');
