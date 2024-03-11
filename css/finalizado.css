@@ -17,58 +17,14 @@ body {
 #finalizacion p {
   font-size: 20px;
   margin-bottom: 10px;
-  font-family: Anton;
-    padding: 100px;
-    text-align: center;
-    display: flex; 
-    flex-direction: column; 
-    justify-content: center; 
-    align-items: center;
-  }
-  
-  
-  #finalizacion p{
-    font-size: 25px;
-    margin-bottom: 10px;
-  }
-  .nombre{
-    font-size: 40;
-  }
-  
-  
-.btn10{
-    padding: 15px 20px;
-    margin: 0 10px;
-    top: 40px;
-    font-family: "proxima-nova", sans-serif;
-    font-weight: 500;
-    font-size: 13px;
-    text-transform: uppercase!important;
-    letter-spacing: 2px;
-    color: #000000;
-    cursor: hand;
-    text-align: center;
-    text-transform: capitalize;
-    border: 1px solid #000000;
-    border-radius:50px;
-    position: relative;
-    overflow: hidden!important;
-    -webkit-transition: all .3s ease-in-out;
-    -moz-transition: all .3s ease-in-out;
-    -o-transition: all .3s ease-in-out;
-    transition: all .3s ease-in-out;
-    background: transparent!important;
-    z-index:10; 
-}
-
-.btn10:hover{
-    border: 1px solid #fc330f;
-    color: #ffd23e!important;
+  font-family: Anton; /* Cambia el tipo de letra para los párrafos dentro de #finalizacion */
 }
 
 .btn10 {
+  padding: 15px 20px;
+  margin: 0 10px;
   top: 40px;
-  font-family: "Jost", sans-serif;
+  font-family: "proxima-nova", sans-serif;
   font-weight: 500;
   font-size: 13px;
   text-transform: uppercase!important;
@@ -86,12 +42,12 @@ body {
   -o-transition: all .3s ease-in-out;
   transition: all .3s ease-in-out;
   background: transparent!important;
-  z-index:10;
+  z-index:10; 
 }
 
 .btn10:hover {
   border: 1px solid #000000;
-  color: #010101!important;
+  color: #0e2351!important;
 }
 
 .btn10::before {
@@ -99,7 +55,7 @@ body {
   width: 0%;
   height: 100%;
   display: block;
-  background: #abde64;
+  background: #69c0f6;
   position: absolute;
   -ms-transform: skewX(-20deg);
   -webkit-transform: skewX(-20deg); 
@@ -120,7 +76,7 @@ body {
   width: 0%;
   height: 100%;
   display: block;
-  background: #b7d63a;
+  background: #a5ede3;
   position: absolute;
   -ms-transform: skewX(-20deg);
   -webkit-transform: skewX(-20deg); 
